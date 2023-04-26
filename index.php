@@ -74,7 +74,7 @@ mysqli_close($conn);
                 <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search">
                 </form> 
                 </div>
-                <button type="button" class="add-btn btn btn-primary" ><a href="add.php">Add PSP</a></button>
+                <button type="button" class="add-btn btn btn-primary" ><a href="add.php">Add</a></button>
             </div>
             <div class="MRF-table">
                     <table class="table">
@@ -90,13 +90,13 @@ mysqli_close($conn);
                     </thead>
                     <?php foreach($requests as $mrf){?>
                         <tr>
-                        <td><?php echo htmlspecialchars($mrf['add_date'])?></td>
+                        <td><?php echo htmlspecialchars($mrf['add_date'] = date("Y-m-d H:i"))?></td>
                         <th scope="row" name="id"><?php echo htmlspecialchars($mrf['recno'])?></th>
                         <td><?php echo htmlspecialchars($mrf['client_name'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_bpcode'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_contract'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_payroll'])?></td>
-                        <td><button type="button" class="btn btn-success" name="update" style="width: 70px; height: 35px; font-size: 14px;">
+                        <td><button type="button"  class="btn btn-success" name="update">
                         <a href="update.php?id=<?php echo htmlspecialchars($mrf['recno'])?>">Update</a></button></td>
                         </tr>
                         <?php }?>

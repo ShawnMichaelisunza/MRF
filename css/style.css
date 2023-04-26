@@ -5,9 +5,11 @@
 }
 .MRF{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .MRF-btn{
-    width: 30%;
+    width: 20%;
     flex-direction: column;
     display: flex;
     margin: 10% 0 0 0;
@@ -16,6 +18,8 @@
 }
 .MRF-btn button{
     width: 30%;
+    font-size: 14px;
+    height: 35px;
 }
 .MRF-btn a{
     color: white;
@@ -23,19 +27,28 @@
 }
 .search input{
     width: 50%;
+    height: 35px;
     margin: 0 3px;
     border: 1px solid black;
 }
 
 /* table */
 .MRF-table{
+    display: flex;
+    flex-wrap: wrap;
     margin: 11% 0 0 0;
-    width: 70%;
-    font-size: 14px;
+    width: 80%;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.MRF-table button{
+    width: 90%;
+    height: 35px;
 }
 .MRF-table button a{
     text-decoration: none;
     color: white;
+    font-size: 14px;
 }
 /* Add PSP */
 .add-psp{
@@ -82,4 +95,34 @@
     font-size: 14px;
     color: green;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+@media(max-width: 800px){
+    .MRF-table{
+        width: 100%;
+        font-size: 50%;
+    }
+    .MRF-table button {
+        display: flex;
+        width: 92%;
+        height: 30px;
+        justify-content: center;
+    }
+    .MRF-table button a{
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .MRF-btn{
+        display: flex;
+        flex-direction: row;
+    }
+    .MRF-btn input{
+        width: 100px;
+    }
+    .MRF-btn button{
+        width: 100%;
+    }
+    .MRF-btn .add-btn{
+        width: 200px;
+    }
 }

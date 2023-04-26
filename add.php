@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 
         <div class="add-btn">
         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-        <button type="reset" class="btn btn-danger">Cancel</button>
+        <button type="reset" class="btn btn-danger" name="cancel"><a href="index.php" style="color: white; text-decoration: none;">Cancel</a></button>
         </div>
         </form>
         </div>
