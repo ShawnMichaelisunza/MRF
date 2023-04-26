@@ -2,6 +2,15 @@
 
 include('db_connect/connection.php');
 
+// Date
+
+
+
+
+
+
+// 
+
 // get page number
 if(isset($_GET['page_no']) && $_GET['page_no'] !==""){
     $page_no = $_GET['page_no'];
@@ -56,6 +65,8 @@ mysqli_free_result($result);
 
 mysqli_close($conn);
 
+
+
 ?>
 
 
@@ -80,7 +91,7 @@ mysqli_close($conn);
                     <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">Date & Time</th>
+                        <th scope="col">Date</th>
                         <th scope="col">ID</th>
                         <th scope="col">Client Name</th>
                         <th scope="col">Client BPcode</th>
@@ -90,7 +101,7 @@ mysqli_close($conn);
                     </thead>
                     <?php foreach($requests as $mrf){?>
                         <tr>
-                        <td><?php echo htmlspecialchars($mrf['add_date'] = date("Y-m-d H:i"))?></td>
+                        <td><?php echo htmlspecialchars($mrf['add_date'])?></td>
                         <th scope="row" name="id"><?php echo htmlspecialchars($mrf['recno'])?></th>
                         <td><?php echo htmlspecialchars($mrf['client_name'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_bpcode'])?></td>

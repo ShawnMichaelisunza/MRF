@@ -2,13 +2,14 @@
 
 include('db_connect/connection.php');
 
-$error = array('client-name' => '', 'bpcode' => '', 'No-psp' => '');
+$error = array('client-name' => '', 'bpcode' => '', 'No-psp' => '', 'date' => '');
 $clientName = $bpCode = $noPsp = '';
 if(isset($_POST['submit'])){
 
     $clientName = $_POST['client-name'];
     $bpCode = $_POST['bpcode'];
     $noPsp = $_POST['No-psp'];
+    $date = $_POST['date'] = date('Y-m-d');
 
     if(empty($_POST['client-name'])){
         $error['client-name'] = '* Client name is Required';
@@ -23,6 +24,11 @@ if(isset($_POST['submit'])){
     }else{
 
     }
+    if(empty($_POST['date'])){
+        $error['date'] = '* Date is Required';
+    }else{
+
+    }
 
     if(empty($_POST['No-psp'])){
         $error['No-psp'] = '* Number of PSP is Required';
@@ -33,8 +39,9 @@ if(isset($_POST['submit'])){
         $clientName = mysqli_real_escape_string($conn, $_POST['client-name']);
         $bpCode = mysqli_real_escape_string($conn, $_POST['bpcode']);
         $noPsp = mysqli_real_escape_string($conn, $_POST['No-psp']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
 
-        $sql = "INSERT INTO bpcodes(client_name, client_bpcode, no_of_psp_contract) VALUES ('$clientName','$bpCode','$noPsp')";
+        $sql = "INSERT INTO bpcodes(client_name, client_bpcode, no_of_psp_contract, add_date) VALUES ('$clientName','$bpCode','$noPsp','$date')";
 
         if(mysqli_query($conn, $sql)){
             // Success
@@ -76,6 +83,12 @@ if(isset($_POST['submit'])){
         <label  class="form-label">No. of PSP ( Contract )</label>
         <input type="text" class="form-control" name="No-psp" value="">
         <div style="color: red; font-size: 13px;"><?php echo htmlspecialchars($error['No-psp']); ?></div>
+        </div>
+
+        <div class="mb-3">
+        <!-- <label  class="form-label">Date</label> -->
+        <input type="hidden" class="form-control" name="date" value="">
+        <div style="color: red; font-size: 13px;"><?php echo htmlspecialchars($error['date']); ?></div>
         </div>
 
         <div class="add-btn">
