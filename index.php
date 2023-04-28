@@ -2,7 +2,8 @@
 
 include('db_connect/connection.php');
 
-// Date
+// Update
+
 
 
 
@@ -76,6 +77,7 @@ mysqli_close($conn);
 <html lang="en">
     <?php include('navbar/header.php')?>
 
+    </div>
     <div class="container"> 
         <div class="MRF">
             <div class="MRF-btn">
@@ -107,8 +109,8 @@ mysqli_close($conn);
                         <td><?php echo htmlspecialchars($mrf['client_bpcode'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_contract'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_payroll'])?></td>
-                        <td><button type="button"  class="btn btn-success" name="update">
-                        <a href="update.php?id=<?php echo htmlspecialchars($mrf['recno'])?>">Update</a></button></td>
+                        <td><button type="button"  class="btn btn-success">
+                        <a name="edit" href="update.php?id=<?php echo htmlspecialchars($mrf['recno'])?>">Update</a></button></td>
                         </tr>
                         <?php }?>
                 </table>
