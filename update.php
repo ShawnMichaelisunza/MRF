@@ -40,8 +40,9 @@
             $clientName = $_POST['client-name'];
             $bpCode = $_POST['bpcode'];
             $noPsp = $_POST['No-psp'];
+            $dropdown = $_POST['dropdown'];
 
-            $query = "UPDATE bpcodes SET client_name = '$clientName', client_bpcode = '$bpCode', no_of_psp_contract = '$noPsp'
+            $query = "UPDATE bpcodes SET client_name = '$clientName', client_bpcode = '$bpCode', no_of_psp_contract = '$noPsp', e_comp = '$dropdown'
             WHERE recno = '$idnew'";
             
 
@@ -59,11 +60,22 @@
 
 <div class="container">
         <div>
-            <h1 style="text-align: center; margin: 30px 0 20px 0;">Update PSP</h1>
+            <h1 style="text-align: center; margin: 30px 0 20px 0;">Update</h1>
         </div>
     <div class="add-psp">
         <div class="add-form">
         <form action="update.php?id_new=<?php echo $id; ?>" method="POST">
+
+        <div class="comp-add mb-3">
+        <label for="">Company Address</label>
+        <select name="dropdown" class="btn btn-success">
+        <option value="">Company Address</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+        </select>
+        </div>
+
         <div class="mb-3">
         <label class="form-label">Client Name</label>
         <input type="text" class="form-control" name="client-name"  value="<?php echo $row['client_name']; ?>">

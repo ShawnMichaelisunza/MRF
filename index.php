@@ -95,6 +95,7 @@ mysqli_close($conn);
                         <tr>
                         <th scope="col">Date</th>
                         <th scope="col">ID</th>
+                        <th scope="col">Company Address</th>
                         <th scope="col">Client Name</th>
                         <th scope="col">Client BPcode</th>
                         <th scope="col">No. of PSP( Contact )</th>
@@ -105,6 +106,7 @@ mysqli_close($conn);
                         <tr>
                         <td><?php echo htmlspecialchars($mrf['add_date'])?></td>
                         <th scope="row" name="id"><?php echo htmlspecialchars($mrf['recno'])?></th>
+                        <td><?php echo htmlspecialchars($mrf['e_comp'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_name'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_bpcode'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_contract'])?></td>

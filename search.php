@@ -42,7 +42,7 @@ $search = $_GET['search'];
 
 // write query from all database
 $sql = "SELECT * FROM bpcodes WHERE client_name LIKE '%$search%' or client_bpcode LIKE '%$search%' or 
-no_of_psp_contract LIKE '%$search%' ORDER BY modified_date";
+no_of_psp_contract LIKE '%$search%' or e_comp LIKE '%$search%' ORDER BY modified_date";
 
 // make query & get result
 $result = mysqli_query($conn, $sql);
@@ -78,8 +78,9 @@ mysqli_close($conn);
             <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">Date & Time</th>
+                        <th scope="col">Date</th>
                         <th scope="col">ID</th>
+                        <th scope="col">Company Address</th>
                         <th scope="col">Client Name</th>
                         <th scope="col">Client BPcode</th>
                         <th scope="col">No. of PSP( Contact )</th>
@@ -88,16 +89,17 @@ mysqli_close($conn);
                     </thead>
                     <?php foreach($requests as $mrf){?>
                         <tr>
-                        <td><?php echo htmlspecialchars($mrf['add_date'] = date("Y-m-d H:i"))?></td>
-                        <th scope="row"><?php echo htmlspecialchars($mrf['recno'])?></th>
+                        <td><?php echo htmlspecialchars($mrf['add_date'])?></td>
+                        <th scope="row" name="id"><?php echo htmlspecialchars($mrf['recno'])?></th>
+                        <td><?php echo htmlspecialchars($mrf['e_comp'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_name'])?></td>
                         <td><?php echo htmlspecialchars($mrf['client_bpcode'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_contract'])?></td>
                         <td><?php echo htmlspecialchars($mrf['no_of_psp_payroll'])?></td>
-                        <td><button type="button" name="update" class="btn btn-success" >
-                        <a href="update.php?id=<?php echo htmlspecialchars($mrf['recno'])?>">Update</a></button></td>
+                        <td><button type="button"  class="btn btn-success">
+                        <a name="edit" href="update.php?id=<?php echo htmlspecialchars($mrf['recno'])?>">Update</a></button></td>
                         </tr>
-                    <?php }?>
+                        <?php }?>
                 </table>
             </div>
             <div>
